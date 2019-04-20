@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container clearfix">
+        <div class="container1 clearfix" id="container_1">
+            <span class="welcome"> Welcome</span>
+            <input type="text" name="zhanghao" class="zhanghao" id="shuru" placeholder="Identification"  >
+            <input type="password" class="mima" name="mima" placeholder="Password">
+            <button class="denglu" id="denglu">Loging</button>
+        </div>
+        <div class="container2 clearfix" id="container_2">
+            <div id="image">
+                <img id="test_image" src="../images/1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+    /*盒子切换*/
+        var loging = document.getElementById("denglu");
+        var shuru = document.getElementById("shuru");
+        var f_loging =function(){
+            document.getElementById("container_1").style.marginLeft="-2000px";
+        }
+        loging.addEventListener('click',function(){
+            if(shuru.value.length>15){
+                alert("id过长请重新输入")
+            }
+            else{
+                f_loging();
+            }
+        }) ;
+        /*轮播图*/
+        var currentImage=1; 
+        var imageCount=5;
+        function selfChangeImage() {
+            if (currentImage < imageCount){
+                currentImage ++ ;
+            } else if (currentImage = imageCount){
+                currentImage = 1;
+             }
+            var imageObj = document.getElementById("test_image");
+            imageObj.src ="../images/"+currentImage +".jpg";
+            setTimeout(selfChangeImage, 2000);
+        }
+        setTimeout(selfChangeImage, 2000);
+    </script>
+</body>
+</html>
